@@ -23,9 +23,9 @@
         /// The condition that needs to be fulfilled.
         /// </param>
         /// <param name="action">The action to apply to the range.</param>
-        public static void ForEachRange(this Document document, Predicate<AngleSharp.Dom.Collections.Range> condition, Action<AngleSharp.Dom.Collections.Range> action)
+        public static void ForEachRange(this Document document, Predicate<Range> condition, Action<Range> action)
         {
-            foreach (var range in document.GetAttachedReferences<AngleSharp.Dom.Collections.Range>())
+            foreach (var range in document.GetAttachedReferences<Range>())
             {
                 if (condition.Invoke(range))
                 {
