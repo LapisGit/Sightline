@@ -1045,7 +1045,7 @@
 
         public IRange CreateRange()
         {
-            var range = new Range(this);
+            var range = new AngleSharp.Dom.Collections.Range(this);
             AttachReference(range);
             return range;
         }
