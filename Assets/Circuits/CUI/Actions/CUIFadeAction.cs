@@ -37,7 +37,10 @@ namespace CUI.Actions {
 
 			//Apply the state instantly
 			if (instant) {
-				graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, activatedFade);
+				if (graphic != null)
+				{
+					graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, activatedFade);
+				}
 			}
 			
 			//Create tweens and use AddActiveTween()
