@@ -100,13 +100,11 @@ namespace DPCore {
 			
 			currentTexture = _cameraTexture;
 			
+
 			if (isStatic) RequestRendering(true);
 			
-
-
+			
 			if (!startVisible) StartCoroutine(DisableCanvasDelayed());
-			
-			
 			
 			overlay.visibilityUpdatedEvent += OnVisibilityUpdated;
 

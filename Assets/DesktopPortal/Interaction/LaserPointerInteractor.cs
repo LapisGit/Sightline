@@ -308,6 +308,8 @@ namespace DesktopPortal.Interaction {
 			if (!isDragging && grabAction[inputSource].state == true && targetDP != null && targetDP.isDraggable) {
 				isDragging = true;
 
+				if (OverlayInteractionManager.I != null) OverlayInteractionManager.I.primaryLaser = this;
+
 				OverlayInteractionManager.I.StartDragDP(targetDP);
 			}
 			else if (isDragging && grabAction[inputSource].state == false) {

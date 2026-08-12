@@ -35,8 +35,6 @@ namespace DesktopPortal.Wristboard {
 
 			widthToLoop = (currSongText.preferredWidth * -1) - songAreaWidth - loopSpacing;
 			
-
-
 			isReady = true;
 		}
 
@@ -60,13 +58,7 @@ namespace DesktopPortal.Wristboard {
 				if (newX <= widthToLoop) {
 					currSongText.transform.localPosition = new Vector3(-songAreaWidth, 0, 0);
 				}
-
-
-
 			}
 		}
-
-
-
 	}
 }

@@ -515,7 +515,8 @@ namespace DesktopPortal.UI {
 
 			if (isDragging) EndCurrentDrag();
 
-			dummyDragChild.SetParent(primaryLaser.pointer);
+			Transform parentForDummy = (primaryLaser != null && primaryLaser.pointer != null) ? primaryLaser.pointer : SteamVRManager.I.noAnchorTrans;
+			dummyDragChild.SetParent(parentForDummy);
 			dummyDragChild.position = dpToDrag.transform.position;
 			dummyDragChild.eulerAngles = dpToDrag.transform.eulerAngles;
 

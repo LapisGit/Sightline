@@ -285,25 +285,16 @@ namespace DesktopPortal.Wristboard {
 		public void TogglePlay() {
 			WinNative.keybd_event(0xB3, 0, 1, 0);
 			//keybd_event(0xB3, 0, 0, IntPtr.Zero);
-			
-			StartCoroutine(UpdateSongText());
-			
-			
-
 		}
 		
 		public void SkipSong() {
 			WinNative.keybd_event(0xB0, 0, 1, 0);
 			//keybd_event(0xB0, 0, 0, IntPtr.Zero);
-			
-			StartCoroutine(UpdateSongText());
 		}
 
 		public void PreviousSong() {
 			WinNative.keybd_event(0xB1, 0, 1, 0);
 			//keybd_event(0xB1, 0, 0, IntPtr.Zero);
-
-			StartCoroutine(UpdateSongText());
 		}
 
 
@@ -313,47 +304,15 @@ namespace DesktopPortal.Wristboard {
 			}
 		}
 
-
-		private IEnumerator UpdateSongText() {
-			
-			yield return new WaitForSeconds(0.4f);
-			
-			SpotifyLink.RequestUpdateTitle();
-
-			yield return new WaitForSeconds(0.4f);
-			
-			string spotifyText = SpotifyLink.GetCurrentlyPlayingSongTitle();
-			currSongText.SetText(spotifyText);
-
-			if (spotifyText != _prevSpotifyState) {
-				_prevSpotifyState = spotifyText;
-
-				if (spotifyText != "N/A" && spotifyText != "Paused...") {
-					_songTextScroller.Setup();
-				}
-				else {
-					_songTextScroller.Stop();
-				}
-			}
-		}
+		
 
 
 
 		private IEnumerator UpdateInfoFast() {
-			
-			
 			while (true) {
-				
-
-				
-				
 				//Current time:
 				currTimeText.SetText(DateTime.Now.ToShortTimeString());
-
-				//Spotify:
-				StartCoroutine(UpdateSongText());
-
-
+				
 				yield return new WaitForSeconds(fastUpdateRate);
 			}
 		}
